@@ -163,7 +163,7 @@
 	<!-- 웹 소켓 설정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- ** echoHandler & chatHandler 설정 1) echoHandler 와 클라이언트 요청 매핑 2) echoHandler 
 		빈 등록 ** JUnit Spring Mybatis Test 할때는 주석처리 해야 함 -->
-	<websocket:handlers>
+<!-- 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler"
 			path="ws_echo" />
 		<websocket:mapping handler="chatHandler"
@@ -171,7 +171,7 @@
 	</websocket:handlers>
 	<beans:bean id="echoHandler" class="socketTest.EchoHandler" />
 	<beans:bean id="chatHandler" class="socketTest.ChatHandler" />
-
+ -->
 
 
 	<!-- *** AOP Transaction 설정 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *** 스프링 트랜잭션 
@@ -211,35 +211,7 @@
 			pointcut-ref="myPointcut" />
 	</aop:config>
 
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<!--    ** 인터셉터 설정 
-   1) 인터셉터 클래스 빈등록 --> 
- 	<beans:bean id="loginInterceptor" class="com.ncs.portfolio.LoginIntercepter"/>
-
-<!--    2) url 과 인터셉터 설정 
-   => Namespaces 에서 mvc 확인 ,
-   => mvc 사용하면 위에 있는 다음 2 Tag 수정 필요함
-         <mvc:annotation-driven  ,  <mvc:resources -->
-
-
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<!-- 전체를 지정하고 제외경로 지정  
-			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/home"/>
-			<mvc:exclude-mapping path="/loginf"/>
-			<mvc:exclude-mapping path="/login"/>
-			<mvc:exclude-mapping path="/joinf"/>
-			<mvc:exclude-mapping path="/join"/>
-			
-			<mvc:mapping path="/a*"/> 
-			<mvc:mapping path="/green*"/> -->
-			<mvc:mapping path="/*check*"/>
-			<mvc:exclude-mapping path="/idcheck"/>
-			<!-- 경로 지정 후 인터셉터 빈 등록 -->		
-			<beans:ref bean="loginInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors>
+ 
 
 
 

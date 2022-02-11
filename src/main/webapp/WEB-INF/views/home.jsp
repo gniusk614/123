@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +61,9 @@
     background-color: #6495ED;
     border-color: #6495ED;
 }
+.btn-primary:active {
+	border-color: blue;
+}
 @media (max-width: 770px) {
   #profilePhoto {
    display: none;
@@ -79,6 +83,11 @@
   }
   
 }
+#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+
+background: rgb(100, 149, 237, 0.8);
+}
+
 section#contact {
     background-color: #212529;
     background-image: url("");
@@ -93,11 +102,22 @@ font{
 	color: #4169E1;
 	font-weight: bold;
 }
+table th{
 
+	width: 150px;
+}
+table tr{
+	height: 30px;
+}
 
 </style>
 </head>
 <body id="page-top">
+	<c:if test="${not empty message}">
+	<script>	
+		alert('이메일이 성공적으로 전송되었습니다.');
+	</script>
+	</c:if>
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
@@ -128,7 +148,7 @@ font{
 		</div>
 	</header>
 	<!-- About Me -->
-	<section class="page-section" id="aboutMe">
+	<section class="page-section bg-light" id="aboutMe">
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">About Me</h2>
@@ -179,10 +199,29 @@ font{
 					</div>
 				</div>
 			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-2" align="center">
+					<a href="https://github.com/gniusk614" target="blank">
+					<img src="/portfolio/resources/image/githubLogo.png" style="width: 50px;"></a>				
+					</div>
+				<div class="col-2 py-2" align="center" style="vertical-align: middle;">
+					<a href="https://www.instagram.com/narn_gh614/" target="blank">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"  style="color: #6495ED;">
+				    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+					</svg></a>
+				</div>
+				<div class="col-2 py-2" align="center" style="vertical-align: middle;">
+				<a href="https://www.youtube.com/channel/UC8ydhM2S7NQrsqiQTtuZSWw" target="blank">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"  style="color: #6495ED;">
+					<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+					</svg></a>
+				</div>
+				
+			</div>
 		</div>
 	</section>
 	<!-- Skills -->
-	<section class="page-section bg-light" id="skills">
+	<section class="page-section" id="skills">
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">Skills</h2>
@@ -200,7 +239,7 @@ font{
 		</div>
 	</section>
 	<!-- Portfolio Grid-->
-	<section class="page-section" id="portfolio">
+	<section class="page-section bg-light" id="portfolio">
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">Projects</h2>
@@ -237,7 +276,8 @@ font{
 							src="/portfolio/resources/image/project_federico.png" alt="..." />
 						</a>
 						<div class="portfolio-caption" style="height: 144px;">
-							<div class="portfolio-caption-heading">프랜차이즈 통합관리 시스템 (Federico Pizza)</div>
+							<div class="portfolio-caption-heading">Federico Pizza<br>
+							(프랜차이즈 통합관리 시스템)</div>
 							<div class="portfolio-caption-subheading text-muted">2021.12.27~2022.02.11</div>
 						</div>
 					</div>
@@ -278,43 +318,38 @@ font{
 			<!-- To make this form functional, sign up at-->
 			<!-- https://startbootstrap.com/solution/contact-forms-->
 			<!-- to get an API token!-->
-			<form id="contactForm" data-sb-form-api-token="API_TOKEN">
+			<form id="contactForm" data-sb-form-api-token="API_TOKEN" action="sendEmail" method="post">
 				<div class="row align-items-stretch mb-5">
 					<div class="col-md-6">
 						<div class="form-group">
 							<!-- Name input-->
-							<input class="form-control" id="name" type="text"
+							<input class="form-control" id="name" type="text" name="name"
 								placeholder="Your Name *" data-sb-validations="required" />
-							<div class="invalid-feedback" data-sb-feedback="name:required">A
-								name is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="name:required">이름을 입력해주세요.</div>
 						</div>
 						<div class="form-group">
 							<!-- Email address input-->
-							<input class="form-control" id="email" type="email"
+							<input class="form-control" id="email" type="email" name="email"
 								placeholder="Your Email *" data-sb-validations="required,email" />
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
-								is not valid.</div>
+							<div class="invalid-feedback" id="eMessage" data-sb-feedback="email:email">올바른 형태의 이메일이 아닙니다.</div>
 						</div>
 						<div class="form-group mb-md-0">
 							<!-- Phone number input-->
-							<input class="form-control" id="phone" type="tel"
+							<input class="form-control" id="phone" type="tel" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name="phone"
 								placeholder="Your Phone *" data-sb-validations="required" />
-							<div class="invalid-feedback" data-sb-feedback="phone:required">A
-								phone number is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="phone:required">핸드폰 번호를 입력해주세요.</div>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group form-group-textarea mb-md-0">
 							<!-- Message input-->
-							<textarea class="form-control" id="message"
+							<textarea class="form-control" id="message" name="message"
 								placeholder="Your Message *" data-sb-validations="required"></textarea>
-							<div class="invalid-feedback" data-sb-feedback="message:required">A
-								message is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="message:required">전달하실 내용을 입력해주세요.</div>
 						</div>
 					</div>
 				</div>
+				
 				<!-- Submit success message-->
 				<!---->
 				<!-- This is what your users will see when the form-->
@@ -337,31 +372,105 @@ font{
 				</div>
 				<!-- Submit Button-->
 				<div class="text-center">
-					<button class="btn btn-primary btn-xl text-uppercase disabled"
+					<button class="btn btn-primary btn-xl text-uppercase" onclick="return sendEmail()"
 						id="submitButton" type="submit">Send Message</button>
 				</div>
 			</form>
+			<script>
+			var nCk=false;
+			var eCk=false;
+			var pCk=false;
+			var mCk=false;
+			
+			$(function(){
+				$('#name').focusout(function() {
+					if($('#name').val().length<1){
+						$('#name').addClass('is-invalid')
+						nCk= false;
+					}else{
+						$('#name').removeClass('is-invalid')
+						nCk= true;
+					}
+				})
+				$('#email').focusout(function() {
+					if($('#email').val().length<1 || $('#email').val().includes("@")==false){
+						$('#email').addClass('is-invalid')
+						eCk= false;
+					}else{
+						$('#email').removeClass('is-invalid')
+						eCk= true;
+					}
+				})
+				$('#phone').focusout(function() {
+					if($('#phone').val().length<1){
+						$('#phone').addClass('is-invalid')
+						pCk= false;
+					}else{
+						$('#phone').removeClass('is-invalid')
+						pCk= true;
+					}
+				})
+				$('#message').focusout(function() {
+					if($('#message').val().length<1){
+						$('#message').addClass('is-invalid')
+						mCk= false;
+					}else{
+						$('#message').removeClass('is-invalid')
+						mCk= true;
+					}
+				})
+			})
+			
+			
+				function sendEmail(){
+						if(nCk==false){
+							$('#name').addClass('is-invalid')
+							return false;
+						}
+						if(pCk==false){
+							$('#phone').addClass('is-invalid')
+							return false;
+						}
+						if(eCk==false){
+							$('#email').addClass('is-invalid')
+							return false;
+						}
+						if(mCk==false){
+							$('#message').addClass('is-invalid')
+							return false;
+						}
+				
+				
+						if(nCk==true && eCk==true && pCk==true && mCk==true){
+							$('#name').removeClass('is-invalid')
+							$('#email').removeClass('is-invalid')
+							$('#phone').removeClass('is-invalid')
+							$('#message').removeClass('is-invalid')
+							if(confirm('위의 내용으로 전송 하시겠습니까?')){
+								return true;	
+							}else{
+								return false;
+							}
+							
+						}else{
+							$('#name').addClass('is-invalid')
+							$('#email').addClass('is-invalid')
+							$('#phone').addClass('is-invalid')
+							$('#message').addClass('is-invalid')
+							return false;
+						}
+					}
+
+				
+				
+			</script>
 		</div>
 	</section>
 	<!-- Footer-->
 	<footer class="footer py-4">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; Your
-					Website 2021</div>
-				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-twitter"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-facebook-f"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-linkedin-in"></i></a>
-				</div>
-				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">Privacy
-						Policy</a> <a class="link-dark text-decoration-none" href="#!">Terms
-						of Use</a>
-				</div>
+				<div class="col-lg-4 text-lg-start">Copyright &copy; KGH Portfolio all right reserved 2022</div>
 			</div>
 		</div>
 	</footer>
@@ -382,20 +491,90 @@ font{
 								<!-- Project details-->
 								<h2 class="text-uppercase">점심뭐먹지?</h2>
 								<p class="item-intro text-muted">2021.11.17~2021.11.25</p>
-								<img class="img-fluid d-block mx-auto"
-									src="/portfolio/resources/image/project_lunch.png" alt="..." />
-								<p>Use this area to describe your project. Lorem ipsum dolor
-									sit amet, consectetur adipisicing elit. Est blanditiis dolorem
-									culpa incidunt minus dignissimos deserunt repellat aperiam
-									quasi sunt officia expedita beatae cupiditate, maiores
-									repudiandae, nostrum, reiciendis facere nemo!</p>
-								<ul class="list-inline">
-									<li><strong>Client:</strong> Threads</li>
-									<li><strong>Category:</strong> Illustration</li>
-								</ul>
+								<div id="carousel_1" class="carousel slide"
+									data-bs-ride="carousel" style="overflow: hidden;">
+									<div class="carousel-inner" style="z-index: 1;">
+										<div class="carousel-item active">
+											<img src="/portfolio/resources/image/lunchSelect_1.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/project_lunch.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/lunchSelect_2.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/lunchSelect_3.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/lunchSelect_4.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/lunchSelect_5.png"
+												class="d-block w-100" alt="...">
+										</div>
+									</div>
+									<button class="carousel-control-prev" type="button"
+										data-bs-target="#carousel_1"
+										data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button"
+										data-bs-target="#carousel_1"
+										data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<div class="row px-5" align="left">
+									<table style="border-collapse: collapse; border: 0px;">
+										<tr>
+											<th>주요기능 : </th>
+											<td>회원가입, 탈퇴, 투표, 결과조회, 관리자페이지 메뉴세팅</td>
+										</tr>
+										<tr>
+											<th>Front-end :</th>
+											<td>HTML5, CSS3, JavaScript, JSP, JQuery</td>
+										</tr>
+										<tr>
+											<th>Back-end : </th>
+											<td>Servlet, mySql</td>
+										</tr>
+									</table>
+								</div>
+								<hr>
+								<div class="row">
+									<p>
+									<b>관리자가 점심메뉴를 세팅하고 회원들이 가입 후에 세팅된 점심메뉴를 투표하는 간단한 로직의 웹사이트</b> 입니다.</p>
+									<p>
+									학원에서 배우는 내용을 매일 적용하기 위한 연습용 프로젝트로 시작했으나 실제로 기능을 구현하고 개선하여 매 점심시간마다
+									같은 반 조원들과 함께 이용했습니다. HTML, JSP, Servlet을 막 배우기 시작한 단계에서 만든 첫 웹페이지 입니다.<br>
+									</p>
+									<p>
+									학습능력향상에 초점을 맞췄으나 처음 웹을 이용하여 원했던 기능을 구현한 의미가 큰 프로젝트입니다.
+									</p>
+								</div>
+								<div class="row">
+								<div class="col">
+								<a href="https://github.com/gniusk614/LunchSelect.git" target="blank">
+								<img src="/portfolio/resources/image/githubLogo.png" style="width: 50px;"></a>				
+								</div>
+								<div class="col">
+								<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16" style="color: lightgray;">
+								  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+								  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+								</svg>
+								</div>	
+								</div>			
 								<button class="btn btn-primary btn-xl text-uppercase"
 									data-bs-dismiss="modal" type="button">
-									<i class="fas fa-times me-1"></i> Close Project
+									<i class="fas fa-times me-1"></i> Close
 								</button>
 							</div>
 						</div>
@@ -418,22 +597,120 @@ font{
 						<div class="col-lg-8">
 							<div class="modal-body">
 								<!-- Project details-->
-								<h2 class="text-uppercase">프랜차이즈 통합관리 시스템(Federico Pizza)</h2>
+								<h2 class="text-uppercase">Federico Pizza<br>(프랜차이즈 통합관리 시스템)</h2>
 								<p class="item-intro text-muted">2021.12.27~2022.02.11</p>
-								<img class="img-fluid d-block mx-auto"
-									src="/portfolio/resources/image/project_federico.png" alt="..." />
-								<p>Use this area to describe your project. Lorem ipsum dolor
-									sit amet, consectetur adipisicing elit. Est blanditiis dolorem
-									culpa incidunt minus dignissimos deserunt repellat aperiam
-									quasi sunt officia expedita beatae cupiditate, maiores
-									repudiandae, nostrum, reiciendis facere nemo!</p>
-								<ul class="list-inline">
-									<li><strong>Client:</strong> Explore</li>
-									<li><strong>Category:</strong> Graphic Design</li>
-								</ul>
+								<div id="carousel_2" class="carousel slide"
+									data-bs-ride="carousel" style="overflow: hidden;">
+									<div class="carousel-inner" style="z-index: 1;">
+										<div class="carousel-item active">
+											<img src="/portfolio/resources/image/project_federico.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_1.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_2.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_4.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_5.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_6.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_7.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_8.png"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="/portfolio/resources/image/federico_9.png"
+												class="d-block w-100" alt="...">
+										</div>
+										
+									</div>
+									<button class="carousel-control-prev" type="button"
+										data-bs-target="#carousel_2"
+										data-bs-slide="prev" style="color: black;">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button"
+										data-bs-target="#carousel_2"
+										data-bs-slide="next" style="color: black;">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<div class="row px-5" align="left">
+									<table style="border-collapse: collapse; border: 0px;">
+										<tr>
+											<th>소비자 페이지 :</th>
+											<td>장바구니 담기, 결제(iamport API), 휴대폰문자인증(coolSms), 비밀번호 재생성
+												이메일전송 , 매장찾기(kakao API), 고객의소리(ckeditor)</td>
+										</tr>
+										<tr>
+											<th>가맹점 페이지 :</th>
+											<td>주문확인처리, 단골고객관리등록, 자재발주신청, 매출통계</td>
+										</tr>
+										<tr>
+											<th>본사 페이지 :</th>
+											<td>가맹점생성관리, 매출통계, 자재발주확인처리, 메뉴등록, 자재등록</td>
+										</tr>
+										<tr>
+											<th>Front-end :</th>
+											<td>JavaScript, JQuery, Ajax, Bootstrap,Css3</td>
+										</tr>
+										<tr>
+											<th>Back-end :</th>
+											<td>SpringFramework, myBatis, AWS RDS, Oracle</td>
+										</tr>
+									</table>
+								</div>
+								<hr>
+								<div class="row">
+									<p>
+									<b>가상의 피자브랜드 'Federico Pizza'의 프랜차이즈 통합 관리 시스템 페이지</b> 입니다.</p>
+									<p>
+									고객과 가맹점 그리고 본사를 함께 이어주는 통합 관리 사이트입니다. <br>
+									실제로 구현되는 결제시스템과 문자전송, email,주소검색, 현재위치 찾기, 매장찾기 등 다양한 API들을 활용했습니다.<br>
+									또 쿠키를 활용한 자동로그인이나 팝업창 띄우기 등 레퍼런스로 삼았던 다른 프랜차이즈 브랜드들의 웹페이지를 
+									최대한 따라서 구현하려 노력했습니다. <br>
+									</p>
+									<p>
+									Git을 통한 협력시스템으로 팀원들과 협력하며 프로젝트를 순조롭게 완성시킬 수 있었습니다.<br>
+									워낙 기획단계에서부터 호흡이 잘 맞았던 팀원들이라 프로젝트 기간 내내 재밌게 즐기면서 할 수 있었고 <br>
+									팀원들과 협업하는 방법을 익힐 수 있었습니다.<br>
+									</p>
+																		
+								</div>
+								<div class="row">
+								<div class="col">
+								<a href="https://github.com/KKKhg/FedericoProject" target="blank">
+								<img src="/portfolio/resources/image/githubLogo.png" style="width: 50px;"></a>				
+								</div>
+								<div class="col">
+								<a href="http://54.180.17.0:8080/federico/" target="blank">
+								<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16" style="color: black;">
+								  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+								  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+								</svg></a>
+								</div>	
+								</div>
 								<button class="btn btn-primary btn-xl text-uppercase"
 									data-bs-dismiss="modal" type="button">
-									<i class="fas fa-times me-1"></i> Close Project
+									<i class="fas fa-times me-1"></i> Close
 								</button>
 							</div>
 						</div>
@@ -460,18 +737,42 @@ font{
 								<p class="item-intro text-muted">2022.02.10~2022.02.11</p>
 								<img class="img-fluid d-block mx-auto"
 									src="/portfolio/resources/image/project_portfolio.png" alt="..." />
-								<p>Use this area to describe your project. Lorem ipsum dolor
-									sit amet, consectetur adipisicing elit. Est blanditiis dolorem
-									culpa incidunt minus dignissimos deserunt repellat aperiam
-									quasi sunt officia expedita beatae cupiditate, maiores
-									repudiandae, nostrum, reiciendis facere nemo!</p>
-								<ul class="list-inline">
-									<li><strong>Client:</strong> Finish</li>
-									<li><strong>Category:</strong> Identity</li>
-								</ul>
+									<div class="row px-5" align="left">
+									<table style="border-collapse: collapse; border: 0px;">
+										<tr>
+											<th>주요기능 :</th>
+											<td>Contact(Email 전송 API)</td>
+										</tr>
+										<tr>
+											<th>Front-end :</th>
+											<td>JavaScript, JQuery, Ajax, Bootstrap,Css3</td>
+										</tr>
+										<tr>
+											<th>Back-end :</th>
+											<td>SpringFramework</td>
+										</tr>
+									</table>
+								</div>
+								<hr>
+									
+								<div class="row">
+									<p>
+									<b>개발자로써 시작을 알리는 저의 첫 포트폴리오 웹사이트</b> 입니다.</p>
+									<p>
+									
+									</p>
+																		
+								</div>
+								<div class="row">
+								<div class="col">
+								<a href="https://github.com/gniusk614/KGHPortfolio.github.io" target="blank">
+								<img src="/portfolio/resources/image/githubLogo.png" style="width: 50px;"></a>				
+								</div>
+								
+								</div>
 								<button class="btn btn-primary btn-xl text-uppercase"
 									data-bs-dismiss="modal" type="button">
-									<i class="fas fa-times me-1"></i> Close Project
+									<i class="fas fa-times me-1"></i> Close
 								</button>
 							</div>
 						</div>
